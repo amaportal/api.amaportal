@@ -18,6 +18,10 @@ Route::get('/', function () {
     return "Welcome";
 });
 
+Route::get('/api/testing', function() {
+	return "this is just testing";
+});
+
 Route::group(['prefix'=>'api'], function() {
 
 	Route::get('test', function() {
