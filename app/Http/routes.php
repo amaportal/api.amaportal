@@ -11,6 +11,23 @@
 |
 */
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+
 Route::get('/', function () {
-    return view('welcome');
+    return "Welcome";
+});
+
+Route::group(['prefix'=>'api'], function() {
+
+	Route::get('test', function() {
+		$result = [
+			"title" => "AMA Portal API",
+			"status" => "Development",
+			"response" => "Welcome to AMA Portal API. This API is for educational purposes only."
+		];
+
+		return $result;
+	});
+
 });
