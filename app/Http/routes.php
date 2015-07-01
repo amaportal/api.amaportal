@@ -18,10 +18,6 @@ Route::get('/', function () {
     return "Welcome";
 });
 
-Route::get('/api/testing', function() {
-	return "this is just testing";
-});
-
 Route::group(['prefix'=>'api'], function() {
 
 	Route::get('test', function() {
@@ -33,5 +29,16 @@ Route::group(['prefix'=>'api'], function() {
 
 		return $result;
 	});
+
+	// Departments
+	Route::get('departments', 'DepartmentController@index');
+	Route::get('departments/results/{results}', 'DepartmentController@index');
+	Route::get('departments/{id}', 'DepartmentController@show');
+	Route::get('departments/{id}/programs', 'DepartmentController@programs');
+	Route::get('departments/{id}/programs/results/{results}', 'DepartmentController@programs');
+
+	// Programs
+	Route::get('programs', 'ProgramController@index');
+	Route::get('programs/results/{result}', 'ProgramController@limitResults');
 
 });
