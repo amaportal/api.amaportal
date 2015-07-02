@@ -28,7 +28,7 @@ class DepartmentController extends Controller
 
     public function show($id)
     {
-    	$department = Department::find($id);
+    	$department = Department::where('id', $id)->with('programs')->first();
 
     	if (count($department) == 0) {
     		return "Department does not exist.";
