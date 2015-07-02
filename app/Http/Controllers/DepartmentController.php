@@ -18,7 +18,7 @@ class DepartmentController extends Controller
     	$departments = null;
 
     	if ($results == null) {
-    		$departments = Department::with('programs')->get();
+    		$departments = Department::all();
     	}else {
     		$departments = Department::paginate($results);
     	}
